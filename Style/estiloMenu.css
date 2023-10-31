@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.inicio{
+    background-image: url(../img/fondo.jpeg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+  }
+
+.nav{
+    width: 350px;
+    float: left;
+}
+
+.nav__link{
+    color: #303440;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
+
+.nav__link--inside{
+    border-radius: 6px ;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.nav__link--inside:hover{
+    background: #F6F8FA;
+}
+
+.list{
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background: #fff;
+}
+
+.list__item{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.list__item--click{
+    cursor: pointer;
+}
+
+.list__button{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.arrow .list__arrow{
+    transform: rotate(90deg);
+}
+
+.list__arrow{
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list__show{
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #303440;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+
+.container{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    flex-direction: column;
+}
+.containersupp{
+    width: 300px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.containersupp3{
+    width: 150px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.containersupp2{ 
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: inline-start;
+}
+.principal{
+    width: 1600px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    text-align:center
+}
+.principal2{
+    width: 1400px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.table-responsive{
+    background: #fff;
+}
+.tablediv1{
+    float:left;
+    background: #fff;
+}
+.tablediv2{
+    float:right;
+    background: #fff;
+}
+.peli{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+tbody td {
+    text-align: center;
+  }
+.card-body{
+    width: 1200;
+}
