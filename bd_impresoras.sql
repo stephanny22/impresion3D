@@ -93,7 +93,6 @@ CREATE TABLE `Prestamo`(
 `hora_inicio` time,
 `hora_devolucion` time,
 `prestado` boolean NOT NULL,
-`devuelto` boolean,
 `id_usuario` varchar(11) NOT NULL,
 `id_impresora` int NOT NULL,
 constraint fk_prestamo_usuario foreign key (id_usuario)
@@ -124,7 +123,40 @@ constraint fk_contenido_revisado_contenido foreign key (id_contenido)
 references Contenido(id),
 primary key(id)
 );
-
+#_______________________________INTENTO_INICIO_DE_SESION______________________________
+CREATE TABLE `Intento_inicio_de_sesion`(
+`id` int,
+`nombre_usuario` varchar(30) NOT NULL,
+`contraseña` varchar(30) NOT NULL,
+`direccion_ip` VARCHAR(45) NOT NULL,
+`exitoso` boolean NOT NULL,
+`tiempo` TIMESTAMP NOT NULL,
+primary key(id),
+constraint fk_intento_inicio_de_sesion_usuario foreign key (nombre_usuario)
+references Usuario(nombre)
+);
+#________________________________DEVOLUCION______________________________________
+CREATE TABLE `Devolucion`(
+`id` int,
+`id_prestamo` int,
+`buenas_condiciones` boolean,
+`descripcion` text,
+primary key(id),
+constraint fk_devolucion_prestamo foreign key (id_prestamo)
+references Prestamo(id)
+);
+#______________________________RESTAURACIÓN DE CONTRASEÑA TOKEN_______________________
+CREATE TABLE restauracion_de_contraseña_token (
+    `id` INT AUTO_INCREMENT,
+    `usuario_email` VARCHAR(255) NOT NULL,
+    `token` VARCHAR(40) NOT NULL,
+    `timestamp` TIMESTAMP NOT NULL,
+    primary key(id),
+	constraint Uk_restauracion_de_contraseña_token_usuario_email unique(usuario_email),
+	constraint Uk_restauracion_de_contraseña_token unique(token),
+    constraint fk_restauracion_contraseña_usuario foreign key (usuario_email)
+	references Usuario(correo)
+);
 #------------------------------INSERT------------------------------------------------------------------
 
 #______________________________ADMINISTRADOR________________________________
@@ -279,7 +311,6 @@ INSERT INTO `bd_impresoras`.`prestamo`
 `hora_inicio`,
 `hora_devolucion`,
 `prestado`,
-`devuelto`,
 `id_usuario`,
 `id_impresora`)
 VALUES
@@ -287,7 +318,6 @@ VALUES
 '2023-10-29',
 '10:00:00',
 '12:00:00',
-true,
 true,
 "1264567890",
 3);
