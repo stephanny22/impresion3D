@@ -2,7 +2,6 @@
 session_start();
 include('class.php');
 class Login{
-
     public function validar($name,$pass){
         //validar si el usuario existe o no
         $sql="select * from administrador where nombre='$name'";
@@ -37,9 +36,7 @@ class Login{
                      window.location='../LoginA.php';
                     }
                 }); </script>";
-
              }
-
         }else{
             echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
             echo "<script type='text/javascript'>

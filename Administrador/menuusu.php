@@ -75,7 +75,59 @@ if($_SESSION['administrador']){
                     </li>
                 </ul>
             </li>
+            <li class="list__item list__item--click">
+                <div class="list__button list__button--click">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="#" class="nav__link">Contenido <br> tematico
+                    </a>
+                    <img src="../assets/arrow.svg" class="list__arrow">
+                </div>
 
+                <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list__item list__item--click">
+                <div class="list__button list__button--click">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="#" class="nav__link">Uso de<br>Impresoras
+                    </a>
+                    <img src="../assets/arrow.svg" class="list__arrow">
+                </div>
+
+                <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list__item list__item--click">
+                <div class="list__button list__button--click">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="#" class="nav__link">Prueba
+                    </a>
+                    <img src="../assets/arrow.svg" class="list__arrow">
+                </div>
+
+                <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Encuesta</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Certificar</a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
@@ -105,9 +157,17 @@ if($_SESSION['administrador']){
                     <div class="card-body">
                         <form name="formu" action="insertusu.php" method="post">
                             <div class="row">
+                            <div class="col-md-6">
+                                    <label for="nom">CODIGO</label>
+                                    <input type="text" name="codigo" class="form-control" placeholder="DIGITE EL CODIGO" required="">
+                                </div>
                                 <div class="col-md-6">
                                     <label for="nom">NOMBRE</label>
                                     <input type="text" name="name" class="form-control" placeholder="DIGITE EL NOMBRE" required="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nom">NOMBRE COMPLETO</label>
+                                    <input type="text" name="namecon" class="form-control" placeholder="DIGITE EL NOMBRE COMPLETO" required="">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="con">CONTRASEÑA</label>
@@ -116,6 +176,10 @@ if($_SESSION['administrador']){
                                 <div class="col-md-6">
                                     <label for="em">EMAIL</label>
                                     <input type="email" name="emai" class="form-control" placeholder="DIGITE EL EMAIL" required="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nom">CORREO INSTITUCIONAL</label>
+                                    <input type="email" name="emains" class="form-control" placeholder="DIGITE EL CORREO INSTITUCIONAL" required="">
                                 </div>
                                 <div class="col-md-12">
                                     <br>
@@ -135,9 +199,12 @@ if($_SESSION['administrador']){
                         <table id="usu" class="table table-bordered table-striped">
                             <thead>
                                 <tr align="center">
+                                    <th>CODIGO</th>
                                     <th>NOMBRE</th>
+                                    <th>NOMBRE COMPLETO</th>
                                     <th>CONTRASEÑA</th>
                                     <th>EMAIL</th>
+                                    <th>CORREO INSTITUCIONAL</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,14 +212,17 @@ if($_SESSION['administrador']){
                                 for($i=0;$i<count($reg);$i++){
 
                                 echo "<tr>
+                                    <td>".$reg[$i]['codigo']."</td>
                                     <td>".$reg[$i]['nombre']."</td>
+                                    <td>".$reg[$i]['nombrecompleto']."</td>
                                     <td>".$reg[$i]['contraseña']."</td>
-                                    <td>".$reg[$i]['correo']."</td>";
+                                    <td>".$reg[$i]['correo']."</td>
+                                    <td>".$reg[$i]['correo_inst']."</td>";
                                     ?>
                                     <td align='center'>
-                                    <button class='btn btn-warning' onclick=window.location="menuusued.php?nombre=<?php echo $reg[$i]['nombre'];?>">
+                                    <button class='btn btn-warning' onclick=window.location="menuusued.php?codigo=<?php echo $reg[$i]['codigo'];?>">
                                     <span class="material-symbols-outlined">edit_square</span>
-                                    <button class='btn btn-primary' onclick="eliminar('eliminarusu.php?nombre=<?php echo $reg[$i]['nombre'];?>')">
+                                    <button class='btn btn-primary' onclick="eliminar('eliminarusu.php?codigo=<?php echo $reg[$i]['codigo'];?>')">
                                     <span class="material-symbols-outlined">delete_sweep</span>
                                     </td>
                                     

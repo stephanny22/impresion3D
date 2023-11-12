@@ -17,17 +17,29 @@
     <<div class="login-box">
         <h2>Creacion Usuario</h2>
         <form name="formu" action="Usuario/Creacion.php" method="post">
+        <div class="user-box">
+            <input type="text" name="cod" required="">
+            <label>Codigo institucional</label>
+          </div>
           <div class="user-box">
             <input type="text" name="name" required="">
-            <label>Ingresa tu nombre de usuario</label>
+            <label>Nombre de usuario</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="namecom" required="">
+            <label>Nombre completo</label>
           </div>
           <div class="user-box">
             <input type="password" name="pass" required="">
-            <label>Ingresa tu contraseña</label>
+            <label>Contraseña</label>
           </div>
           <div class="user-box">
             <input type="email" name="emai" required="">
             <label>Correo electronico</label>
+          </div>
+          <div class="user-box">
+            <input type="email" name="emaiins" required="">
+            <label>Correo institucional</label>
           </div>
           <a href="#">
             <span></span>

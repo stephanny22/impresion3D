@@ -27,7 +27,7 @@ html {
     color: #fff;
     text-align: center;
   }
-  
+
   .login-box .user-box {
     position: relative;
   }
@@ -43,6 +43,9 @@ html {
     outline: none;
     background: transparent;
   }
+  .login-box .user-box h6 {
+    color: #fff;
+  }
   .login-box .user-box label {
     position: absolute;
     top:0;
@@ -53,7 +56,7 @@ html {
     pointer-events: none;
     transition: .5s;
   }
-  
+
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
     top: -20px;

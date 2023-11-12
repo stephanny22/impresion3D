@@ -42,17 +42,57 @@ if($_SESSION['usuario']){
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../assets//docs.svg" class="list__img">
-                    <a href="#" class="nav__link">Tutoriales
+                    <a href="#" class="nav__link">Contenido <br> tematico
                     </a>
                     <img src="../assets/arrow.svg" class="list__arrow">
                 </div>
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Contenido <br> tematico</a>
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>
                     </li>
                 </ul>
             </li>
+
+            <li class="list__item list__item--click">
+                <div class="list__button list__button--click">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="#" class="nav__link">Uso de<br>Impresoras
+                    </a>
+                    <img src="../assets/arrow.svg" class="list__arrow">
+                </div>
+
+                <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list__item list__item--click">
+                <div class="list__button list__button--click">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="#" class="nav__link">Prueba
+                    </a>
+                    <img src="../assets/arrow.svg" class="list__arrow">
+                </div>
+
+                <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Encuesta</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Certificar</a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../assets/perfil.svg" class="list__img">

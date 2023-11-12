@@ -28,6 +28,9 @@
             <input type="password" name="pass" required="">
             <label>Contraseña</label>
           </div>
+          <div class="user-box">
+            <label><h6>Intentos restantes: 5</h6></label><br>
+          </div>
           <a href="#">
             <span></span>
             <span></span>

@@ -16,8 +16,7 @@
 </head>
 
 <body>
-<?php
-$globals = $GLOBALS;
+    <?php
 class Conectar{
     public static function conec(){
         $host="localhost";
@@ -50,8 +49,8 @@ class Usuario{
     return $this->nombre;       
  }
 
- public function insertusu($name,$pass,$emai){
-    $sql="insert into usuario values ('$name','$pass','$emai')";
+ public function insertusu($cod, $name, $namecom, $pass, $emai, $emaiins){
+    $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
     $res=mysqli_query(Conectar::conec(),$sql);
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
     echo "
@@ -68,8 +67,8 @@ class Usuario{
     </script>";
  }
 
- public function insertusua($name,$pass,$emai){
-    $sql="insert into usuario values ('$name','$pass','$emai')";
+ public function insertusua($cod,$name,$namecom,$pass,$emai,$emaiins){
+    $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
     $res=mysqli_query(Conectar::conec(),$sql);
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
     echo "
@@ -189,8 +188,8 @@ class Usuario{
  }
 
  //metodo editar
- public function editaru($name,$pass,$emai){
-  $sql="update usuario set nombre='$name',contraseña='$pass',correo='$emai' where nombre='$name'";
+ public function editaru($cod,$name,$namecon,$pass,$emai,$emains){
+  $sql="update usuario set codigo='$cod',nombre='$name',nombrecompleto='$namecon',contraseña='$pass',correo='$emai',correo_inst='$emains' where codigo='$cod'";
    $res=mysqli_query(Conectar::conec(),$sql);
    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
    echo "<script type='text/javascript'>
@@ -209,8 +208,8 @@ class Usuario{
 
  //metodo para traer el id del alumno
 
- public function get_idu($name){
-    $sql="select * from usuario where nombre='$name'";
+ public function get_idu($codigo){
+    $sql="select * from usuario where codigo='$codigo'";
     $res=mysqli_query(Conectar::conec(),$sql);
     if($row=mysqli_fetch_assoc($res)){
         $this->alum[]=$row;
@@ -227,8 +226,8 @@ class Usuario{
  }
 
  //metodo eliminar
- public function eliminara($name){
-    $sql="delete from usuario where nombre='$name'";
+ public function eliminara($codigo){
+    $sql="delete from usuario where codigo='$codigo'";
     $res=mysqli_query(Conectar::conec(),$sql);
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
     echo "
@@ -236,7 +235,7 @@ class Usuario{
    Swal.fire({
       icon : 'success',
       title : 'Operacion Exitosa!!',
-      text :  'El usuario con nombre: $name fue eliminado Correctamente'
+      text :  'El usuario con codigo: $codigo fue eliminado Correctamente'
    }).then((result) => {
        if(result.isConfirmed){
            window.location='./menuusu.php';
