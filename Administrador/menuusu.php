@@ -71,7 +71,10 @@ if($_SESSION['administrador']){
                 </div>
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menuusu.php" class="nav__link nav__link--inside">Gestionar usuario</a>
+                        <a href="menuusu.php" class="nav__link nav__link--inside">Gestionar<br>usuario</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="menuad.php" class="nav__link nav__link--inside">Gestionar<br>administrador</a>
                     </li>
                 </ul>
             </li>
@@ -102,6 +105,9 @@ if($_SESSION['administrador']){
                 </div>
 
                 <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
+                    </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>

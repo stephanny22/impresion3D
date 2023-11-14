@@ -2,10 +2,10 @@
 include('../class/class.php');
 $alu= new Usuario();
 if(isset($_POST['grabar']) && $_POST['grabar']=="si"){
-     $alu->editaru($_POST['codigo'], $_POST['name'], $_POST['namecon'],$_POST['pass'], $_POST['emai'], $_POST['emains']);
+     $alu->editarimp($_POST['id'],$_POST['estado'],$_POST['id_horario']);
     exit();
 }
-$reg=$alu->get_idu($_GET['codigo']);
+$reg=$alu->get_idimp($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -107,27 +107,6 @@ $reg=$alu->get_idu($_GET['codigo']);
                     </li>
                 </ul>
             </li>
-            <!--
-            <li class="list__item list__item--click">
-              <div class="list__button list__button--click">
-                    <img src="../assets//docs.svg" class="list__img">
-                    <a href="#" class="nav__link">Peliculas
-                    </a>
-                    <img src="../assets/arrow.svg" class="list__arrow">
-                </div>
-                <ul class="list__show">
-                    <li class="list__inside">
-                        <a href="menumodpeli.php" class="nav__link nav__link--inside">Modificar pelicula</a>
-                    </li>
-                    <li class="list__inside">
-                        <a href="menumodhor.php" class="nav__link nav__link--inside">Modificar horario</a>
-                    </li>
-                    <li class="list__inside">
-                        <a href="menumodcine.php" class="nav__link nav__link--inside">Modificar cine</a>
-                    </li>
-                </ul>
-            </li> 
-            -->
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../assets/perfil.svg" class="list__img">
@@ -151,41 +130,27 @@ $reg=$alu->get_idu($_GET['codigo']);
         <div class="container">
         <div class="card">
             <div class="card-header bg-info">
-                <h3 class="text-white text-center">GESTION DE USUARIOS</h3>
+                <h3 class="text-white text-center">GESTION DE IMPRESORAS</h3>
             </div>
             <div class="card-body">
-                <form name="formü" action="menuusued.php" method="post">
+                <form name="formü" action="menuimped.php" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="cod">CODIGO</label>
+                            <label for="name">ID</label>
                             <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="codigo" class="form-control" value ="<?php echo $_GET['codigo'];?>">
+                            <input type="text" name="id" class="form-control" value ="<?php echo $_GET['id'];?>">
                         </div>
                         <div class="col-md-6">
-                            <label for="name">NOMBRE</label>
-                            <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="name" class="form-control" value ="<?php echo $reg[0]['nombre'];?>">
+                            <label for="pass">ESTADO</label>
+                            <input type="text" name="estado" class="form-control" value="<?php echo $reg[0]['estado'];?>">
                         </div>
                         <div class="col-md-6">
-                            <label for="namecon">NOMBRE COMPLETO</label>
-                            <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="namecon" class="form-control" value ="<?php echo $reg[0]['nombrecompleto'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="pass">CONTRASEÑA</label>
-                            <input type="text" name="pass" class="form-control" value="<?php echo $reg[0]['contraseña'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email">EMAIL</label>
-                            <input type="email" name="emai" class="form-control" value="<?php echo $reg[0]['correo'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="emailins">CORREO INSTITUCIONAL</label>
-                            <input type="email" name="emains" class="form-control" value="<?php echo $reg[0]['correo_inst'];?>">
+                            <label for="pass">ID HORARIO</label>
+                            <input type="text" name="id_horario" class="form-control" value="<?php echo $reg[0]['id_horario'];?>">
                         </div>
                         <div class="col-md-12">
                             <br>
-                            <input type="button" class="btn btn-info" value="VOLVER" onclick="window.location='menuusu.php'">
+                            <input type="button" class="btn btn-info" value="VOLVER" onclick="window.location='menuimp.php'">
                             <input type="submit" class="btn btn-primary" value="EDITAR">
                         </div>
                     </div>

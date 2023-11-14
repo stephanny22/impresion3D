@@ -33,364 +33,215 @@ class Conectar{
     }   
 }
 class Usuario{
- private $alum;
+    private $alum;
 
- public function __construct(){
-    $this->alum = array();
- }
-
- public function verusu(){
-    $sql="select * from usuario";
-    $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    //recorrer la tabla alumnos
-    while($row=mysqli_fetch_assoc($res)){
-        $this->nombre[]= $row;
+    public function __construct(){
+        $this->alum = array();
     }
-    return $this->nombre;       
- }
 
- public function insertusu($cod, $name, $namecom, $pass, $emai, $emaiins){
-    $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "
-    <script type='text/javascript'>
-    Swal.fire({
-       icon : 'success',
-       title : 'Operacion Exitosa!!',
-       text :  'Usuario creado Correctamente'
-    }).then((result) => {
-        if(result.isConfirmed){
-            window.location='../LoginU.php';
+    public function verusu(){
+        $sql="select * from usuario";
+        $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
+        //recorrer la tabla alumnos
+        while($row=mysqli_fetch_assoc($res)){
+            $this->nombre[]= $row;
         }
-    });
-    </script>";
- }
+        return $this->nombre;       
+    }
 
- public function insertusua($cod,$name,$namecom,$pass,$emai,$emaiins){
-    $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "
-    <script type='text/javascript'>
-    Swal.fire({
-       icon : 'success',
-       title : 'Operacion Exitosa!!',
-       text :  'Usuario creado Correctamente'
-    }).then((result) => {
-        if(result.isConfirmed){
-            window.location='../Administrador/menuusu.php';
+    public function verad(){
+        $sql="select * from administrador";
+        $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
+        //recorrer la tabla alumnos
+        while($row=mysqli_fetch_assoc($res)){
+            $this->nombre[]= $row;
         }
-    });
-    </script>";
- }
+        return $this->nombre;       
+    }
 
- public function inserthor($idh,$idp,$ids,$fecha,$idt,$hr1,$hr2,$hr3,$hr4){
-    $sql="insert into horario values ('$idh','$idp','$ids','$fecha','$idt','$hr1','$hr2','$hr3','$hr4')" or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    $res=mysqli_query(Conectar::conec(),$sql);
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "
-    <script type='text/javascript'>
-    Swal.fire({
-       icon : 'success',
-       title : 'Operacion Exitosa!!',
-       text :  'Horario asignado Correctamente'
-    }).then((result) => {
-        if(result.isConfirmed){
-            window.location='../Administrador/menumodpeli.php';
+    public function verimp(){
+        $sql="select * from impresora";
+        $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
+        //recorrer la tabla alumnos
+        while($row=mysqli_fetch_assoc($res)){
+            $this->nombre[]= $row;
         }
-    });
-    </script>";
- }
+        return $this->nombre;       
+    }
 
- public function insertcine($idc,$ncin,$dir,$tel,$hor){
-    $sql="insert into cine values ('$idc','$ncin','$dir','$tel','$hor')";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "
-    <script type='text/javascript'>
-    Swal.fire({
-       icon : 'success',
-       title : 'Operacion Exitosa!!',
-       text :  'Cine asignado Correctamente'
-    }).then((result) => {
-        if(result.isConfirmed){
-            window.location='../Administrador/menumodhor.php';
-        }
-    });
-    </script>";
- }
-
- public function editarhor($idh,$idp,$ids,$fecha,$idt,$hr1,$hr2,$hr3,$hr4){
-    $sql="update horario set id_horario='$idh',id_pelicula='$idp',id_sala='$ids',fecha='$fecha',id_tarifa='$idt',hora1='$hr1',hora2='$hr2',hora3='$hr3',hora4='$hr4' where id_horario='$idh'";
-     $res=mysqli_query(Conectar::conec(),$sql);
-     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-     echo "<script type='text/javascript'>
-     Swal.fire({
+    public function insertusu($cod, $name, $namecom, $pass, $emai, $emaiins){
+        $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "
+        <script type='text/javascript'>
+        Swal.fire({
         icon : 'success',
         title : 'Operacion Exitosa!!',
-        text :  'Datos editados Correctamente'
-     }).then((result) => {
-         if(result.isConfirmed){
-             window.location='../Administrador/menumodhor.php';
-         }
-     });
-     </script>";
-   }
+        text :  'Usuario creado Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../LoginU.php';
+            }
+        });
+        </script>";
+    }
 
-   public function editarcine($idc,$ncin,$dir,$tel,$idh){
-    $sql="update cine set id_cine='$idc',nombre_cine='$ncin',direccion='$dir',telefono='$tel',id_horario='$idh' where id_cine='$idc'";
-     $res=mysqli_query(Conectar::conec(),$sql);
-     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-     echo "<script type='text/javascript'>
-     Swal.fire({
+    public function insertusua($cod,$name,$namecom,$pass,$emai,$emaiins){
+        $sql="insert into usuario values ('$cod','$name','$namecom','$pass','$emai','$emaiins')";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "
+        <script type='text/javascript'>
+        Swal.fire({
         icon : 'success',
         title : 'Operacion Exitosa!!',
-        text :  'Datos editados Correctamente'
-     }).then((result) => {
-         if(result.isConfirmed){
-             window.location='../Administrador/menumodcine.php';
-         }
-     });
-     </script>";
-   }
-
-   
-
-   public function verhort(){
-    $sql="select * from horario";
-    $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    //recorrer la tabla alumnos
-    while($row=mysqli_fetch_assoc($res)){
-        $this->nombre[]= $row;
+        text :  'Usuario creado Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuusu.php';
+            }
+        });
+        </script>";
     }
-    return $this->nombre;       
- }
 
- public function vercine(){
-    $sql="select * from cine";
-    $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    //recorrer la tabla alumnos
-    while($row=mysqli_fetch_assoc($res)){
-        $this->nombre[]= $row;
+    public function insertada($name,$pass){
+        $sql="insert into administrador values ('$name','$pass')";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "
+        <script type='text/javascript'>
+        Swal.fire({
+        icon : 'success',
+        title : 'Operacion Exitosa!!',
+        text :  'Usuario creado Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuad.php';
+            }
+        });
+        </script>";
     }
-    return $this->nombre;       
- }
 
- public function vercinet($id){
-    $sql="select * from cine where id_horario='$id'";
-    $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    //recorrer la tabla alumnos
-    while($row=mysqli_fetch_assoc($res)){
-        $this->nombre[]= $row;
+    public function insertimpa($id,$est,$idh){
+        $sql="insert into impresora values ('$id','$est','$idh')";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "
+        <script type='text/javascript'>
+        Swal.fire({
+        icon : 'success',
+        title : 'Operacion Exitosa!!',
+        text :  'Usuario creado Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuimp.php';
+            }
+        });
+        </script>";
     }
-    return $this->nombre;       
- }
 
- //metodo editar
- public function editaru($cod,$name,$namecon,$pass,$emai,$emains){
-  $sql="update usuario set codigo='$cod',nombre='$name',nombrecompleto='$namecon',contraseña='$pass',correo='$emai',correo_inst='$emains' where codigo='$cod'";
-   $res=mysqli_query(Conectar::conec(),$sql);
-   echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-   echo "<script type='text/javascript'>
-   Swal.fire({
-      icon : 'success',
-      title : 'Operacion Exitosa!!',
-      text :  'Datos editados Correctamente'
-   }).then((result) => {
-       if(result.isConfirmed){
-           window.location='../Administrador/menuusu.php';
-       }
-   });
-   </script>";
+    //metodo editar
+    public function editaru($cod,$name,$namecon,$pass,$emai,$emains){
+        $sql="update usuario set codigo='$cod',nombre='$name',nombrecompleto='$namecon',contraseña='$pass',correo='$emai',correo_inst='$emains' where codigo='$cod'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script type='text/javascript'>
+        Swal.fire({
+            icon : 'success',
+            title : 'Operacion Exitosa!!',
+            text :  'Datos editados Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuusu.php';
+            }
+        });
+        </script>";
+    }
 
- }
+    public function editarad($name,$pass){
+        $sql="update administrador set nombre='$name',contraseña='$pass' where nombre='$name'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script type='text/javascript'>
+        Swal.fire({
+            icon : 'success',
+            title : 'Operacion Exitosa!!',
+            text :  'Datos editados Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuad.php';
+            }
+        });
+        </script>";
+    }
+
+    public function editarimp($id,$est,$idh){
+        $sql="update impresora set estado='$est',id_horario='$idh' where id='$id'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script type='text/javascript'>
+        Swal.fire({
+            icon : 'success',
+            title : 'Operacion Exitosa!!',
+            text :  'Datos editados Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='../Administrador/menuimp.php';
+            }
+        });
+        </script>";
+    }
 
  //metodo para traer el id del alumno
 
- public function get_idu($codigo){
-    $sql="select * from usuario where codigo='$codigo'";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    if($row=mysqli_fetch_assoc($res)){
-        $this->alum[]=$row;
-    }
-    return $this->alum;
- }
- public function get_conu($name,$email){
-    $sql="select contraseña from usuario where nombre='$name' and correo='$email'";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    if($row=mysqli_fetch_assoc($res)){
-        $this->alum[]=$row;
-    }
-    return $this->alum;
- }
-
- //metodo eliminar
- public function eliminara($codigo){
-    $sql="delete from usuario where codigo='$codigo'";
-    $res=mysqli_query(Conectar::conec(),$sql);
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-    echo "
-   <script type='text/javascript'>
-   Swal.fire({
-      icon : 'success',
-      title : 'Operacion Exitosa!!',
-      text :  'El usuario con codigo: $codigo fue eliminado Correctamente'
-   }).then((result) => {
-       if(result.isConfirmed){
-           window.location='./menuusu.php';
-       }
-   }); </script>";
-    }  
-
-    public function verpeli(){
-       $sql="select * from pelicula";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->nombre[]= $row;
-       }
-       return $this->nombre;       
-    }
-
-    public function get_idpeli($id){
-        $sql="select * from pelicula where id_pelicula='$id'";
+    public function get_idu($codigo){
+        $sql="select * from usuario where codigo='$codigo'";
         $res=mysqli_query(Conectar::conec(),$sql);
         if($row=mysqli_fetch_assoc($res)){
             $this->alum[]=$row;
         }
         return $this->alum;
-     }
-
-    public function verhorario($id){
-        $sql="select * from horario where id_pelicula='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->alum[]= $row;
-       }
-       return $this->alum;   
     }
 
-    public function verhorariot($id){
-        $sql="select * from horario where id_horario='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->alum[]= $row;
-       }
-       return $this->alum;   
-    }
-    
-    public function vertarifa($id){
-        $sql="select * from tarifa where id_tarifa='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->nombre[]= $row;
-       }
-       return $this->nombre;   
+    public function get_idad($nombre){
+        $sql="select * from administrador where nombre='$nombre'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        if($row=mysqli_fetch_assoc($res)){
+            $this->alum[]=$row;
+        }
+        return $this->alum;
     }
 
-    public function versalat(){
-        $sql="select * from sala";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->nombre[]= $row;
-       }
-       return $this->nombre;   
-    }
-
-    public function vertarifat(){
-        $sql="select * from tarifa";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->nombre[]= $row;
-       }
-       return $this->nombre;   
-    }
-
-    public function versala($id){
-        $sql="select * from sala where id_sala='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-       //recorrer la tabla alumnos
-       while($row=mysqli_fetch_assoc($res)){
-           $this->nombre[]= $row;
-       }
-       return $this->nombre;   
-    }
-   
-    public function insertpeli($id_pelicula, $titulo, $director, $pro1, $pro2, $pro3, $genero, $clasificacion) {
-        $sql = "INSERT INTO pelicula VALUES ('$id_pelicula', '$titulo', '$director', '$pro1', '$pro2', '$pro3', '$genero', '$clasificacion')";
-        $res = mysqli_query(Conectar::conec(), $sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-    
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-        echo "<script type='text/javascript'>
-            Swal.fire({
-                icon: 'success',
-                title: 'Operación Exitosa!',
-                text: 'Película creada correctamente'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location='../Administrador/menumodpeli.php';
-                }
-            });
-        </script>";
-    }
-    //metodo editar
-    public function editarpeli($id_pelicula, $titulo, $director, $pro1, $pro2, $pro3, $genero, $clasificacion) {
-        $sql = "UPDATE pelicula SET titulo = '$titulo', director = '$director', pro1 = '$pro1', pro2 = '$pro2', pro3 = '$pro3', genero = '$genero', clasificacion = '$clasificacion' WHERE id_pelicula = '$id_pelicula'";
-        $res = mysqli_query(Conectar::conec(), $sql) or die ("ERROR em la Consulta $sql".mysqli_error($link));
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-        echo "<script type='text/javascript'>
-            Swal.fire({
-                icon: 'success',
-                title: 'Operación Exitosa!',
-                text: 'Datos editados correctamente'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location='../Administrador/menumodpeli.php';
-                }
-            });
-        </script>";
-    }
-   
-    //metodo para trar el id del alumno
-   
-    public function get_titu($id){
-       $sql="select titulo from pelicula where id_pelicula='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql);
-       if($row=mysqli_fetch_assoc($res)){
-           $this->alum[]=$row;
-       }
-       return $this->alum;
-    }
-   
-    //metodo eliminar
-    public function eliminarpeli($id){
-       $sql="delete from pelicula where id_pelicula='$id'";
-       $res=mysqli_query(Conectar::conec(),$sql);
-       echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-       echo "
-      <script type='text/javascript'>
-      Swal.fire({
-         icon : 'success',
-         title : 'Operacion Exitosa!!',
-         text :  'El usuario con nombre: $id fue eliminado Correctamente'
-      }).then((result) => {
-          if(result.isConfirmed){
-              window.location='../Administrador/menumodpeli.php';
-          }
-      }); </script>
-      ";
-   
+    public function get_idimp($id){
+        $sql="select * from impresora where id='$id'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        if($row=mysqli_fetch_assoc($res)){
+            $this->alum[]=$row;
+        }
+        return $this->alum;
     }
 
     //metodo eliminar
-    public function eliminarcine($id){
-        $sql="delete from cine where id_cine='$id'";
+    public function eliminara($codigo){
+        $sql="delete from usuario where codigo='$codigo'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "
+        <script type='text/javascript'>
+        Swal.fire({
+            icon : 'success',
+            title : 'Operacion Exitosa!!',
+            text :  'El usuario con codigo: $codigo fue eliminado Correctamente'
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location='./menuusu.php';
+            }
+        }); </script>";
+        }  
+
+    public function eliminarad($name){
+        $sql="delete from administrador where nombre='$name'";
         $res=mysqli_query(Conectar::conec(),$sql);
         echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo "
@@ -398,18 +249,16 @@ class Usuario{
        Swal.fire({
           icon : 'success',
           title : 'Operacion Exitosa!!',
-          text :  'El cine con id: $id fue eliminado Correctamente'
+          text :  'El administrador con codigo: $name fue eliminado Correctamente'
        }).then((result) => {
            if(result.isConfirmed){
-               window.location='../Administrador/menumodcine.php';
+               window.location='./menuad.php';
            }
-       }); </script>
-       ";
-    
-     }
+       }); </script>";
+    }
 
-     public function eliminarhor($id){
-        $sql="delete from horario where id_horario='$id'";
+    public function eliminarimp($id){
+        $sql="delete from impresora where id='$id'";
         $res=mysqli_query(Conectar::conec(),$sql);
         echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo "
@@ -417,17 +266,15 @@ class Usuario{
        Swal.fire({
           icon : 'success',
           title : 'Operacion Exitosa!!',
-          text :  'El horario con id: $id fue eliminado Correctamente'
+          text :  'La impresora con codigo: $id fue eliminado Correctamente'
        }).then((result) => {
            if(result.isConfirmed){
-               window.location='../Administrador/menumodhor.php';
+               window.location='./menuimp.php';
            }
-       }); </script>
-       ";
-    
-     }
+       }); </script>";
+    }  
 
-   }
+}
 ?>
 <!--  -->
     <!-- Optional JavaScript; choose one of the two! -->
