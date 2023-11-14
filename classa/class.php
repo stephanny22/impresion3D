@@ -22,7 +22,7 @@ class Conectar{
         $host="localhost";
         $user="root";
         $pass="";
-        $db_name="bd_cine";
+        $db_name="bd_impresoras";
         //conectarnos a la BD
         $link=mysqli_connect($host,$user,$pass) 
          or die ("ERROR Al conectar la BD".mysqli_error($link));
