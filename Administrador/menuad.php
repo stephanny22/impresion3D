@@ -135,6 +135,13 @@ if($_SESSION['administrador']){
                 </ul>
             </li>
 
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="../visualizar_intentos.php" class="nav__link">Intentos inicio de sesión</a>
+                </div>
+            </li>
+
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../assets/perfil.svg" class="list__img">

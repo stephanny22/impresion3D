@@ -8,7 +8,7 @@ $intentos = $res->fetch_all(MYSQLI_ASSOC);
 $row_cnt = $res->num_rows;
 
 // Número de elementos por página
-$elementos_por_pagina = 2;
+$elementos_por_pagina = 5;
 
 // Página predeterminada si no se especifica ninguna
 $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;

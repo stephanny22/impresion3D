@@ -46,6 +46,7 @@ if($_SESSION['administrador']){
                     </a>
                     <img src="../assets/arrow.svg" class="list__arrow">
                 </div>
+
                 <ul class="list__show">
                     <li class="list__inside">
                         <a href="menuusu.php" class="nav__link nav__link--inside">Gestionar<br>usuario</a>
@@ -133,6 +134,13 @@ if($_SESSION['administrador']){
                 </ul>
             </li> 
             -->
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="../visualizar_intentos.php" class="nav__link">Intentos inicio de sesión</a>
+                </div>
+            </li>
+
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../assets/perfil.svg" class="list__img">
