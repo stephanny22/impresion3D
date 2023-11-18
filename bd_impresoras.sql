@@ -41,7 +41,7 @@ primary key(id)
 #______________________________HORARIO________________________________
 CREATE TABLE `Horario`(
 `id` int,
-`dia` date NOT NULL,
+`dia` varchar(50) NOT NULL,
 `hora_inicio` time NOT NULL,
 `hora_fin` time NOT NULL,
 primary key(id)
@@ -157,6 +157,27 @@ CREATE TABLE restauracion_de_contraseña_token (
     constraint fk_restauracion_contraseña_usuario foreign key (usuario_email)
 	references Usuario(correo)
 );
+#_______________________________IMPLEMENTO__________________________________
+CREATE TABLE implemento(
+    `id` INT AUTO_INCREMENT,
+	`nombre` varchar(50),
+    `descripcion` text,
+    `cantidad` INT,
+	primary key(id),
+	constraint Uk_implemento_nombre unique(nombre)
+);
+#_______________________________IMPLEMENTO_IMPRESORA_____________________________
+CREATE TABLE implemento_impresora(
+    `id` INT AUTO_INCREMENT,
+    `id_implemento` int,
+    `id_impresora` int,
+	primary key(id),
+	constraint fk_implemento_impresora_implemento foreign key (id_implemento)
+	references implemento(id),
+	constraint fk_implemento_impresora_impresora foreign key (id_impresora)
+	references impresora(id)
+);
+
 #------------------------------INSERT------------------------------------------------------------------
 
 #______________________________ADMINISTRADOR________________________________
@@ -350,4 +371,45 @@ VALUES
 2),
 (3,
 "1234555590",
+1);
+#___________________INTENTO_INICIO_DE_SESION__________________________
+INSERT INTO `intento_inicio_de_sesion` (
+`id`,
+ `nombre_usuario`,
+ `contraseña`,
+ `direccion_ip`,
+ `exitoso`,
+ `tiempo`) 
+ VALUES (
+ '3',
+ 'Juan',
+ 'ds',
+ 'aaa',
+ '0',
+ current_timestamp()
+ );
+ #_______________________________IMPLEMENTO_________________________________
+ INSERT INTO `bd_impresoras`.`implemento`
+(`id`,
+`nombre`,
+`descripcion`,
+`cantidad`)
+VALUES
+(1,
+"filamento blanco",
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Aliquam eu euismod enim. Nam fringilla tempor sem, id 
+ placerat eros convallis sit amet. Pellentesque ullamcorper
+ eros velit.",
+30);
+
+ 
+ #_______________________________IMPLEMENTO_IMPRESORA_____________________________
+ INSERT INTO `bd_impresoras`.`implemento_impresora`
+(`id`,
+`id_implemento`,
+`id_impresora`)
+VALUES
+(1,
+1,
 1);
