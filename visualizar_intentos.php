@@ -94,6 +94,9 @@ if($_SESSION['administrador']){
                         <a href="Administrador/menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
                     </li>
                     <li class="list__inside">
+                        <a href="Administrador/implementos.php" class="nav__link nav__link--inside">Implementos</a>
+                    </li>
+                    <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
