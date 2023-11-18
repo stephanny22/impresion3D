@@ -29,7 +29,7 @@ if($_SESSION['administrador']){
   </head>
   <body>
 <div class="principal">
-  <nav class="nav">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -39,28 +39,6 @@ if($_SESSION['administrador']){
                     
                 </div>
             </li>
-
-            <!--
-            <li class="list__item list__item--click">
-              <div class="list__button list__button--click">
-                    <img src="../assets//docs.svg" class="list__img">
-                    <a href="#" class="nav__link">Peliculas
-                    </a>
-                    <img src="../assets/arrow.svg" class="list__arrow">
-                </div>
-                <ul class="list__show">
-                    <li class="list__inside">
-                        <a href="menumodpeli.php" class="nav__link nav__link--inside">Modificar pelicula</a>
-                    </li>
-                    <li class="list__inside">
-                        <a href="menumodhor.php" class="nav__link nav__link--inside">Modificar horario</a>
-                    </li>
-                    <li class="list__inside">
-                        <a href="menumodcine.php" class="nav__link nav__link--inside">Modificar cine</a>
-                    </li>
-                </ul>
-            </li> 
-            -->
 
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
@@ -103,16 +81,18 @@ if($_SESSION['administrador']){
                     </a>
                     <img src="../assets/arrow.svg" class="list__arrow">
                 </div>
-
                 <ul class="list__show">
                 <li class="list__inside">
                         <a href="menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
                     </li>
                     <li class="list__inside">
+                        <a href="implementos.php" class="nav__link nav__link--inside">Implementos</a>
+                    </li>
+                    <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
                     </li>
                 </ul>
             </li>

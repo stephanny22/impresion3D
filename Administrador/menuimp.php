@@ -24,12 +24,12 @@ if($_SESSION['administrador']){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script type="text/javascript" language="Javascript" src="../js/funciones.js"></script>
 
-    <title>Menu cine</title>
+    <title>Menu impresion 3D</title>
     <link rel="stylesheet" href="../Style/estiloMenu.css">
   </head>
   <body>
 <div class="principal">
-  <nav class="nav">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -108,10 +108,13 @@ if($_SESSION['administrador']){
                         <a href="menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
                     </li>
                     <li class="list__inside">
+                        <a href="implementos.php" class="nav__link nav__link--inside">Implementos</a>
+                    </li>
+                    <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
                     </li>
                 </ul>
             </li>
@@ -132,6 +135,13 @@ if($_SESSION['administrador']){
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Certificar</a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="../assets//docs.svg" class="list__img">
+                    <a href="../visualizar_intentos.php" class="nav__link">Intentos inicio de sesión</a>
+                </div>
             </li>
 
             <li class="list__item list__item--click">

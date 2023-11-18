@@ -29,7 +29,7 @@ if($_SESSION['administrador']){
   </head>
   <body>
 <div class="principal">
-  <nav class="nav">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -103,16 +103,18 @@ if($_SESSION['administrador']){
                     </a>
                     <img src="../assets/arrow.svg" class="list__arrow">
                 </div>
-
                 <ul class="list__show">
-                    <li class="list__inside">
+                <li class="list__inside">
                         <a href="menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="implementos.php" class="nav__link nav__link--inside">Implementos</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
                     </li>
                 </ul>
             </li>
@@ -134,7 +136,7 @@ if($_SESSION['administrador']){
                     </li>
                 </ul>
             </li>
-            
+
             <li class="list__item">
                 <div class="list__button">
                     <img src="../assets//docs.svg" class="list__img">
@@ -157,7 +159,6 @@ if($_SESSION['administrador']){
 
             </li>
 
-            </li>
         </ul>
     </nav>
     <div>
