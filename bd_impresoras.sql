@@ -33,14 +33,14 @@ CREATE TABLE `Estudiante` (
 );
 #______________________________CONTENIDO________________________________
 CREATE TABLE `Contenido`(
-`id` int,
+`id` int auto_increment,
 `titulo` varchar(100) NOT NULL,
 `texto` text,
 primary key(id)
 );
 #______________________________HORARIO________________________________
 CREATE TABLE `Horario`(
-`id` int,
+`id` int auto_increment,
 `dia` varchar(50) NOT NULL,
 `hora_inicio` time NOT NULL,
 `hora_fin` time NOT NULL,
@@ -48,7 +48,7 @@ primary key(id)
 );
 #______________________________PRUEBA________________________________
 CREATE TABLE `Prueba`(
-`id` int,
+`id` int auto_increment,
 `nombre` varchar(100) NOT NULL,
 `id_contenido` int NOT NULL,
 constraint fk_prueba_contenido foreign key (id_contenido)
@@ -57,7 +57,7 @@ primary key(id)
 );
 #______________________________PREGUNTA________________________________
 CREATE TABLE `Pregunta`(
-`id` int,
+`id` int auto_increment,
 `enunciado` text NOT NULL,
 `id_prueba` int NOT NULL,
 constraint fk_Pregunta_prueba foreign key (id_prueba)
@@ -66,7 +66,7 @@ primary key(id)
 );
 #______________________________CALIFICACION________________________________
 CREATE TABLE `Calificacion`(
-`id` int,
+`id` int auto_increment,
 `nota` int NOT NULL,
 `intentos` int NOT NULL,
 `id_prueba` int NOT NULL,
@@ -79,16 +79,17 @@ primary key(id)
 );
 #______________________________IMPRESORA________________________________
 CREATE TABLE `Impresora`(
-`id` int,
+`id` int auto_increment,
+`nombre` varchar(50) NOT NULL,
 `estado` varchar(50) NOT NULL,
-`id_horario` int NOT NULL,
+`id_horario` int,
 constraint fk_impresora_horario foreign key (id_horario)
 references Horario(id),
 primary key(id)
 );
 #______________________________PRESTAMO________________________________
 CREATE TABLE `Prestamo`(
-`id` int,
+`id` int auto_increment,
 `fecha_prestamo` date NOT NULL,
 `hora_inicio` time,
 `hora_devolucion` time,
@@ -103,7 +104,7 @@ primary key(id)
 );
 #______________________________OPCION________________________________
 CREATE TABLE `Opcion`(
-`id` int,
+`id` int auto_increment,
 `texto` text NOT NULL,
 `correcta` boolean NOT NULL,
 `id_pregunta` int NOT NULL,
@@ -113,7 +114,7 @@ primary key(id)
 );
 #______________________________CONTENIDO_REVISADO________________________________
 CREATE TABLE `Contenido_revisado`(
-`id` int,
+`id` int auto_increment,
 `id_estudiante` varchar(11) NOT NULL,
 `id_contenido` int NOT NULL,
 constraint Uk_contenido_revisado_revisado_id_estudiante_id_contenido unique(id_estudiante, id_contenido),
@@ -125,7 +126,7 @@ primary key(id)
 );
 #_______________________________INTENTO_INICIO_DE_SESION______________________________
 CREATE TABLE `Intento_inicio_de_sesion`(
-`id` int,
+`id` int auto_increment,
 `nombre_usuario` varchar(30) NOT NULL,
 `contraseña` varchar(30) NOT NULL,
 `direccion_ip` VARCHAR(45) NOT NULL,
@@ -137,7 +138,7 @@ references Usuario(nombre)
 );
 #________________________________DEVOLUCION______________________________________
 CREATE TABLE `Devolucion`(
-`id` int,
+`id` int auto_increment,
 `id_prestamo` int,
 `buenas_condiciones` boolean,
 `descripcion` text,
@@ -313,16 +314,20 @@ VALUES
 #______________________________IMPRESORA________________________________
 INSERT INTO `bd_impresoras`.`impresora`
 (`id`,
+`nombre`,
 `estado`,
 `id_horario`)
 VALUES
 (1,
+"impresora1",
 "prestado",
 1),
 (2,
+"impresora2",
 "en mantenimiento",
 1),
 (3,
+"impresora3",
 "disponible",
 1);
 #______________________________PRESTAMO________________________________

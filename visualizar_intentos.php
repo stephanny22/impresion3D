@@ -97,7 +97,7 @@ if($_SESSION['administrador']){
                         <a href="Administrador/implementos.php" class="nav__link nav__link--inside">Implementos</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Horarios</a>
+                        <a href="Administrador/visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
@@ -254,7 +254,7 @@ if($_SESSION['administrador']){
      text :  ' Debe iniciar Session en el Sistema'
     }).then((result) => {
          if(result.isConfirmed){
-         window.location='/LoginA.php';
+         window.location='../LoginA.php';
         }
     }); </script>";
 }?>
