@@ -100,7 +100,7 @@ if($_SESSION['administrador']){
                         <a href="Administrador/visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="Administrador/prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
                     </li>
                 </ul>
             </li>

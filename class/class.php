@@ -203,6 +203,14 @@ class Usuario{
         }
         return $this->alum;
     }
+    public function get_idusuario($name){
+        $sql="select codigo from usuario where nombre='$name'";
+        $res=mysqli_query(Conectar::conec(),$sql);
+        if($row=mysqli_fetch_assoc($res)){
+            $this->alum[]=$row;
+        }
+        return $row['codigo'];
+     }
 
     public function get_idad($nombre){
         $sql="select * from administrador where nombre='$nombre'";

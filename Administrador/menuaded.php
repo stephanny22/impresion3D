@@ -87,7 +87,7 @@ $reg=$alu->get_idad($_GET['nombre']);
                         <a href="visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
+                        <a href="prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
                     </li>
                 </ul>
             </li>

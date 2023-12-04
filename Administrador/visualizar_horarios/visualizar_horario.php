@@ -31,7 +31,7 @@ if($_SESSION['administrador']){
   <div class="principal">
 
   <!-- menu de navegacion -->
-  <nav class="nav">
+  <nav class="nav" style="margin-left: -120px;">
         <ul class="list">
 
             <li class="list__item">
@@ -94,7 +94,7 @@ if($_SESSION['administrador']){
                         <a href="visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
+                        <a href="../prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
                     </li>
                 </ul>
             </li>
@@ -248,7 +248,7 @@ if($_SESSION['administrador']){
      Swal.fire({
      icon : 'error',
     title : 'ERROR!!',
-     text :  ' Debe iniciar Session en el Sistema'
+     text :  ' Debe iniciar Sesion en el Sistema'
     }).then((result) => {
          if(result.isConfirmed){
          window.location='../../LoginA.php';

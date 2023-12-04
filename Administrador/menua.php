@@ -24,7 +24,7 @@ if($_SESSION['administrador']){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script type="text/javascript" language="Javascript" src="./js/funciones.js"></script>
 
-    <title>Menu cine</title>
+    <title>Menu administrador</title>
     <link rel="stylesheet" href="../Style/estiloMenu.css">
   </head>
   <body class="inicio">
@@ -113,7 +113,7 @@ if($_SESSION['administrador']){
                         <a href="visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitud de<br>prestamo</a>
+                        <a href="prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
                     </li>
                 </ul>
             </li>

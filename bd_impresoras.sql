@@ -93,7 +93,7 @@ CREATE TABLE `Prestamo`(
 `fecha_prestamo` date NOT NULL,
 `hora_inicio` time,
 `hora_devolucion` time,
-`prestado` boolean NOT NULL,
+`prestado` boolean,
 `id_usuario` varchar(11) NOT NULL,
 `id_impresora` int NOT NULL,
 constraint fk_prestamo_usuario foreign key (id_usuario)

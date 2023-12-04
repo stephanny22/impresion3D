@@ -70,7 +70,7 @@ if($_SESSION['usuario']){
                         <a href="visualizar_horario/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="solicitar_prestamo/solicitar_prestamo.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
                     </li>
                 </ul>
             </li>

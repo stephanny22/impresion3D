@@ -28,7 +28,7 @@ if($_SESSION['usuario']){
     <link rel="stylesheet" href="../../Style/estiloMenu.css">
   </head>
   <body>
-<div>
+<div clas="principal">
   <nav class="nav">
         <ul class="list">
 
@@ -70,7 +70,7 @@ if($_SESSION['usuario']){
                         <a href="#" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="../solicitar_prestamo/solicitar_prestamo.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
                     </li>
                 </ul>
             </li>
@@ -110,9 +110,12 @@ if($_SESSION['usuario']){
 
         </ul>
     </nav>
-</div>
+<div>
   <script src="../../js/menu.js"></script>
 <!-- BUSCADOR -->
+<div class="containersupp2"></div>
+        <div class="containersupp"></div>
+            <div class="container" >
   <div class="card">
                     <div class="card-header bg-info">
                         <h3 class="text-white text-center">GESTION DE HORARIOS</h3>
@@ -147,7 +150,7 @@ if($_SESSION['usuario']){
                     </div> 
                 </div>
 
-                <div class="container"></div>
+                <div class="containersupp"></div>
                     <?php
                     include 'buscar_horario.php';
                     ?>
