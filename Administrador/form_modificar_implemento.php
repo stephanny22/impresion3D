@@ -72,7 +72,7 @@ include "read_modificar_implementos.php";
                         <a href="videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>
+                        <a href="menumodactivi.php" class="nav__link nav__link--inside">Actividades</a>
                     </li>
                 </ul>
             </li>

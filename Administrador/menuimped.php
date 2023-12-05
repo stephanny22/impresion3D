@@ -67,7 +67,7 @@ $reg=$alu->get_idimp($_GET['id']);
                         <a href="videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>
+                        <a href="menumodactivi.php" class="nav__link nav__link--inside">Actividades</a>
                     </li>
                 </ul>
             </li>
@@ -108,7 +108,7 @@ $reg=$alu->get_idimp($_GET['id']);
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Encuesta</a>
+                        <a href="menumodencuesta.php" class="nav__link nav__link--inside">Encuesta</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Certificar</a>

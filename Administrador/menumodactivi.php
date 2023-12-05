@@ -1,11 +1,16 @@
 <?php
-include('../class/class.php');
-$alu= new Usuario();
-if(isset($_POST['grabar']) && $_POST['grabar']=="si"){
-     $alu->editaru($_POST['codigo'], $_POST['name'], $_POST['namecon'],$_POST['pass'], $_POST['emai'], $_POST['emains']);
-    exit();
+session_start();
+$inn=500;
+if(isset($_SESSION['timeout'])){
+    $_session_life = time() - $_SESSION['timeout'];
+     if($_session_life > $inn){
+        session_destroy();
+        header("location:../LoginU.php");
+     }
 }
-$reg=$alu->get_idu($_GET['codigo']);
+$_SESSION['timeout']=time();
+include('../class/class.php');
+if($_SESSION['administrador']){
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,17 +18,17 @@ $reg=$alu->get_idu($_GET['codigo']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../sw/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./sw/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script type="text/javascript" language="Javascript" src="../js/funciones.js"></script>
+    <script type="text/javascript" language="Javascript" src="./js/funciones.js"></script>
 
-    <title>Menu cine</title>
+    <title>Menu Modificar encuesta</title>
     <link rel="stylesheet" href="../Style/estiloMenu.css">
   </head>
-  <body>
-<div class="principal">
+  <body class="inicio">
+<div>
 <nav class="nav">
         <ul class="list">
 
@@ -64,7 +69,7 @@ $reg=$alu->get_idu($_GET['codigo']);
                         <a href="contenido_tematico/contenido_tematico.php" class="nav__link nav__link--inside">Contenido <br> tematico</a>
                     </li>
                     <li class="list__inside">
-                        <a href="videos/video.php" class="nav__link nav__link--inside">Videos</a>
+                        <a href="videos/video.phpp" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
                         <a href="menumodactivi.php" class="nav__link nav__link--inside">Actividades</a>
@@ -108,7 +113,7 @@ $reg=$alu->get_idu($_GET['codigo']);
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menumodencuesta.php" class="nav__link nav__link--inside">Encuesta</a>
+                        <a href="#" class="nav__link nav__link--inside">Encuesta</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Certificar</a>
@@ -144,65 +149,39 @@ $reg=$alu->get_idu($_GET['codigo']);
         <div class="containersupp2"></div>
         <div class="containersupp"></div>
         <div class="container">
+            <br>
         <div class="card">
             <div class="card-header bg-info">
-                <h3 class="text-white text-center">GESTION DE USUARIOS</h3>
+                <h3 class="text-white text-center">MODIFICAR ACTIVIDADES</h3>
             </div>
             <div class="card-body">
-                <form name="formü" action="menuusued.php" method="post">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="cod">CODIGO</label>
-                            <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="codigo" class="form-control" value ="<?php echo $_GET['codigo'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="name">NOMBRE</label>
-                            <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="name" class="form-control" value ="<?php echo $reg[0]['nombre'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="namecon">NOMBRE COMPLETO</label>
-                            <input type="hidden" name="grabar" value="si">
-                            <input type="text" name="namecon" class="form-control" value ="<?php echo $reg[0]['nombrecompleto'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="pass">CONTRASEÑA</label>
-                            <input type="text" name="pass" class="form-control" value="<?php echo $reg[0]['contraseña'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email">EMAIL</label>
-                            <input type="email" name="emai" class="form-control" value="<?php echo $reg[0]['correo'];?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="emailins">CORREO INSTITUCIONAL</label>
-                            <input type="email" name="emains" class="form-control" value="<?php echo $reg[0]['correo_inst'];?>">
-                        </div>
-                        <div class="col-md-12">
-                            <br>
-                            <input type="button" class="btn btn-info" value="VOLVER" onclick="window.location='menuusu.php'">
-                            <input type="submit" class="btn btn-primary" value="EDITAR">
-                        </div>
-                    </div>
-                </form>
+                Link para modificar actividades:
+                <br>
+                <a href="https://docs.google.com/forms/u/0/" target="_blank">Abrir en nueva pestaña</a>
+                <br>
+                Correo electronico: impresiond98@gmail.com<br>
+                Contraseña: 1234567qua
+                <br>
             </div>
         </div>
     </div>
-    </div>
 </div>
-  <script type="text/javascript" src="../js/funciones.js"></script>
   <script src="../js/menu.js"></script>
-  <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../sw/dist/sweetalert2.min.js"></script>
-    <script src="../js/jquery-3.6.1.min.js"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>
 </html>
+<?php
+}else{
+    $_SESSION['administrador']=NULL;
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+    echo "<script type='text/javascript'>
+     Swal.fire({
+     icon : 'error',
+    title : 'ERROR!!',
+     text :  ' Debe iniciar Session en el Sistema'
+    }).then((result) => {
+         if(result.isConfirmed){
+         window.location='./LoginU.php';
+        }
+    }); </script>";
+}
+?>
