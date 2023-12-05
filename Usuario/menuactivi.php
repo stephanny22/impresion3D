@@ -28,7 +28,7 @@ if($_SESSION['usuario']){
     <link rel="stylesheet" href="../Style/estiloMenu.css">
   </head>
   <body class="inicio">
-<div>
+<div class="principal">
   <nav class="nav">
         <ul class="list">
 
@@ -49,7 +49,10 @@ if($_SESSION['usuario']){
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                        <a href="../Administrador/contenido_tematico/contenido_tematico.php" class="nav__link nav__link--inside">Contenido <br> temático</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="../Administrador/videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuactivi.php" class="nav__link nav__link--inside">Actividades</a>
@@ -112,7 +115,8 @@ if($_SESSION['usuario']){
             </li>
 
         </ul>
-    </nav><div>
+    </nav>
+    <div>
         <div class="containersupp2"></div>
         <div class="containersupp"></div>
         <div class="container">
@@ -138,6 +142,7 @@ if($_SESSION['usuario']){
         </div>
     </div>
 </div>
+
   <script src="../js/menu.js"></script>
   </body>
 </html>

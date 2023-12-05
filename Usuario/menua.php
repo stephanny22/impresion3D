@@ -48,8 +48,11 @@ if($_SESSION['usuario']){
                 </div>
 
                 <ul class="list__show">
+                <li class="list__inside">
+                        <a href="../Administrador/contenido_tematico/contenido_tematico.php" class="nav__link nav__link--inside">Contenido <br> temático</a>
+                    </li>
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                        <a href="../Administrador/videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuactivi.php" class="nav__link nav__link--inside">Actividades</a>
