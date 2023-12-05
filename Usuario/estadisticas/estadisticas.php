@@ -9,7 +9,7 @@ if(isset($_SESSION['timeout'])){
      }
 }
 $_SESSION['timeout']=time();
-include('../../class/class.php');
+include("calculos_estadisticas.php");
 if($_SESSION['usuario']){
 ?>
 <!DOCTYPE html>
@@ -24,12 +24,12 @@ if($_SESSION['usuario']){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script type="text/javascript" language="Javascript" src="./js/funciones.js"></script>
 
-    <title>Horarios</title>
+    <title>Solicitar prestamo</title>
     <link rel="stylesheet" href="../../Style/estiloMenu.css">
   </head>
   <body>
 <div class="principal">
-  <nav class="nav">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -41,7 +41,7 @@ if($_SESSION['usuario']){
 
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
-                    <img src="../../assets//docs.svg" class="list__img">
+                    <img src="../../assets/docs.svg" class="list__img">
                     <a href="#" class="nav__link">Contenido <br> tematico
                     </a>
                     <img src="../../assets/arrow.svg" class="list__arrow">
@@ -70,17 +70,22 @@ if($_SESSION['usuario']){
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="#" class="nav__link nav__link--inside">Horarios</a>
+                        <a href="../visualizar_horario/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="../solicitar_prestamo/solicitar_prestamo.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                        <a href="#" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
                     </li>
                     <li class="list__inside">
                         <a href="../devoluciones/devolucion.php" class="nav__link nav__link--inside">Mis devoluciones</a>
                     </li>
                 </ul>
             </li>
-
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="../../assets/graph-fill.svg" class="list__img">
+                    <a href="#" class="nav__link">Estadísticas</a>
+                </div>
+            </li>
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../../assets//docs.svg" class="list__img">
@@ -98,12 +103,7 @@ if($_SESSION['usuario']){
                     </li>
                 </ul>
             </li>
-            <li class="list__item">
-                <div class="list__button">
-                    <img src="../../assets/graph-fill.svg" class="list__img">
-                    <a href="../estadisticas/estadisticas.php" class="nav__link">Estadísticas</a>
-                </div>
-            </li>
+
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
                     <img src="../../assets/perfil.svg" class="list__img">
@@ -121,88 +121,40 @@ if($_SESSION['usuario']){
 
         </ul>
     </nav>
-<div>
   <script src="../../js/menu.js"></script>
-<!-- BUSCADOR -->
-<div class="containersupp2"></div>
+<!-- FORMULARIO -->
+<div>
+        <div class="containersupp2"></div>
         <div class="containersupp"></div>
-            <div class="container" >
-  <div class="card">
-                    <div class="card-header bg-info">
-                        <h3 class="text-white text-center">BUSCADOR DE HORARIOS</h3>
-                    </div>
-                    <div class="card-body">
-                        <form name="formu" action="" method="post">
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <label for="nom">DIA</label>
-                                    <select name="day" class="form-select" aria-label="Default select example">
-                                      <option selected>Selecciona el día</option>
-                                      <option value="lunes">Lunes</option>
-                                      <option value="martes">Martes</option>
-                                      <option value="miercoles">Miércoles</option>
-                                      <option value="jueves">Jueves</option>
-                                      <option value="viernes">Viernes</option>
-                                      <option value="sabado">Sábado</option>
-                                      <option value="domingo">Domingo</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nom">IMPRESORA</label>
-                                    <input type="number" name="impresora" class="form-control">
-                                </div>
-                                <div class="col-md-12">
-                                    <br>
-                                    <input type="submit" class="btn btn-primary" value="BUSCAR">
-                                </div>
-                            </div>
-                        </form>
-                    </div> 
+            <div class="container">
+            <div class="card w-50 mt-4">
+              <div class="card-body">
+                <h5 class="card-title">Barra de progreso</h5>
+                <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <?php echo ($porcentaje)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo ($porcentaje)?>%</div>
                 </div>
-
-                <div class="containersupp"></div>
-                    <?php
-                    include 'buscar_horario.php';
-                    ?>
-                    <div class="table-responsive mt-5">
-                        <table id="usu" class="table table-bordered table-striped">
-                            <thead>
-                                <tr align="center">
-                                    <th>DIA</th>
-                                    <th>ID IMPRESORA</th>
-                                    <th>NOMBRE IMPRESORA</th>
-                                    <th>HORA DE INICIO</th>
-                                    <th>HORA DE FIN</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                foreach ($horarios as $horario) { ?>
-
-
-                                <tr>                                    
-                                    <td><?php  echo $horario['dia']; ?></td>
-                                    <td><?php  echo $horario['id']; ?></td>
-                                    <td><?php  echo $horario['nombre']; ?></td>
-                                    <td><?php echo $horario['hora_inicio']; ?></td>
-                                    <td><?php echo $horario['hora_fin']; ?></td>
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+              </div>
+            </div>
+            
+            <div class="card w-50 mt-4">
+              <div class="card-body">
+                <h5 class="card-title">Promedio</h5>
+                <p class="card-text"><?php echo $promedio?></p>
+              </div>
+            </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../sw/dist/sweetalert2.min.js"></script>
+    <script src="../../js/jquery-3.6.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.10.2/dist/js/bootstrap.min.js"></script>  </body>
 </html>
 <?php
 }else{
@@ -212,7 +164,7 @@ if($_SESSION['usuario']){
      Swal.fire({
      icon : 'error',
     title : 'ERROR!!',
-     text :  ' Debe iniciar Session en el Sistema'
+     text :  ' Debe iniciar Sesion en el Sistema'
     }).then((result) => {
          if(result.isConfirmed){
          window.location='../../LoginU.php';

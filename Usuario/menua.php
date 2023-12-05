@@ -98,6 +98,12 @@ if($_SESSION['usuario']){
                     </li>
                 </ul>
             </li>
+            <li class="list__item">
+                <div class="list__button">
+                    <img src="../assets/graph-fill.svg" class="list__img">
+                    <a href="estadisticas/estadisticas.php" class="nav__link">Estadísticas</a>
+                </div>
+            </li>
 
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
@@ -105,7 +111,6 @@ if($_SESSION['usuario']){
                     <a href="#" class="nav__link">Perfil</a>
                     <img src="../assets/arrow.svg" class="list__arrow">
                 </div>
-
                 <ul class="list__show">
                     <li class="list__inside">
                         <a href="../salir.php" class="nav__link nav__link--inside">Cerrar Sesion</a>
