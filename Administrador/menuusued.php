@@ -61,7 +61,7 @@ $reg=$alu->get_idu($_GET['codigo']);
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                        <a href="videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
                         <a href="menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>

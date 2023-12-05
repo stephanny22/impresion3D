@@ -61,7 +61,7 @@ if($_SESSION['administrador']){
             </li>
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
-                    <img src="../../assets//docs.svg" class="list__img">
+                    <img src="../../assets/docs.svg" class="list__img">
                     <a href="#" class="nav__link">Contenido <br> tematico
                     </a>
                     <img src="../../assets/arrow.svg" class="list__arrow">
@@ -69,7 +69,7 @@ if($_SESSION['administrador']){
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="../../menuverpeli.php" class="nav__link nav__link--inside">Videos</a>
+                        <a href="../videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
                     <li class="list__inside">
                         <a href="../../menuverpeli.php" class="nav__link nav__link--inside">Actividades</a>
