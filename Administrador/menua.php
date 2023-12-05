@@ -86,6 +86,9 @@ if($_SESSION['administrador']){
                 </div>
 
                 <ul class="list__show">
+                <li class="list__inside">
+                        <a href="contenido_tematico/contenido_tematico.php" class="nav__link nav__link--inside">Contenido <br> tematico</a>
+                    </li>
                     <li class="list__inside">
                         <a href="videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>

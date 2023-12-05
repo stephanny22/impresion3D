@@ -60,13 +60,16 @@ if($_SESSION['administrador']){
             </li>
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
-                    <img src="../../assets//docs.svg" class="list__img">
+                    <img src="../../assets/docs.svg" class="list__img">
                     <a href="#" class="nav__link">Contenido <br> tematico
                     </a>
                     <img src="../../assets/arrow.svg" class="list__arrow">
                 </div>
 
                 <ul class="list__show">
+                    <li class="list__inside">
+                        <a href="../contenido_tematico/contenido_tematico.php" class="nav__link nav__link--inside">Contenido <br> tematico</a>
+                    </li>
                     <li class="list__inside">
                         <a href="../videos/video.php" class="nav__link nav__link--inside">Videos</a>
                     </li>
@@ -78,7 +81,7 @@ if($_SESSION['administrador']){
 
             <li class="list__item list__item--click">
                 <div class="list__button list__button--click">
-                    <img src="../../assets//docs.svg" class="list__img">
+                    <img src="../../assets/docs.svg" class="list__img">
                     <a href="#" class="nav__link">Uso de<br>Impresoras
                     </a>
                     <img src="../../assets/arrow.svg" class="list__arrow">
