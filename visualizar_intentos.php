@@ -91,7 +91,7 @@ if($_SESSION['administrador']){
 
                 <ul class="list__show">
                     <li class="list__inside">
-                        <a href="Administrador/menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
+                        <a href="Administrador/menuimp.php" class="nav__link nav__link--inside">Impresoras</a>
                     </li>
                     <li class="list__inside">
                         <a href="Administrador/implementos.php" class="nav__link nav__link--inside">Implementos</a>
@@ -100,7 +100,10 @@ if($_SESSION['administrador']){
                         <a href="Administrador/visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="Administrador/prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
+                        <a href="Administrador/prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="Administrador/devoluciones/devolucion.php" class="nav__link nav__link--inside">Devoluciones<br><br><br>administrar</a>
                     </li>
                 </ul>
             </li>

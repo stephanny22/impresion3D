@@ -78,7 +78,7 @@ $reg=$alu->get_idad($_GET['nombre']);
                 </div>
                 <ul class="list__show">
                 <li class="list__inside">
-                        <a href="menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
+                        <a href="menuimp.php" class="nav__link nav__link--inside">Impresoras</a>
                     </li>
                     <li class="list__inside">
                         <a href="implementos.php" class="nav__link nav__link--inside">Implementos</a>
@@ -87,7 +87,10 @@ $reg=$alu->get_idad($_GET['nombre']);
                         <a href="visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
+                        <a href="prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="devoluciones/devolucion.php" class="nav__link nav__link--inside">Devoluciones<br><br><br>administrar</a>
                     </li>
                 </ul>
             </li>

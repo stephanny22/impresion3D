@@ -28,7 +28,7 @@ if($_SESSION['usuario']){
     <link rel="stylesheet" href="../../Style/estiloMenu.css">
   </head>
   <body>
-<div clas="principal">
+<div class="principal">
   <nav class="nav">
         <ul class="list">
 
@@ -71,6 +71,9 @@ if($_SESSION['usuario']){
                     </li>
                     <li class="list__inside">
                         <a href="../solicitar_prestamo/solicitar_prestamo.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="../devoluciones/devolucion.php" class="nav__link nav__link--inside">Mis devoluciones</a>
                     </li>
                 </ul>
             </li>
@@ -118,7 +121,7 @@ if($_SESSION['usuario']){
             <div class="container" >
   <div class="card">
                     <div class="card-header bg-info">
-                        <h3 class="text-white text-center">GESTION DE HORARIOS</h3>
+                        <h3 class="text-white text-center">BUSCADOR DE HORARIOS</h3>
                     </div>
                     <div class="card-body">
                         <form name="formu" action="" method="post">

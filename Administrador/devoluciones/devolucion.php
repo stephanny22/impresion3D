@@ -9,6 +9,9 @@ if(isset($_SESSION['timeout'])){
      }
 }
 $_SESSION['timeout']=time();
+include('../../class/class.php');
+include('read_devolucion.php');
+include 'modal_eliminar_devolucion.php';
 
 if($_SESSION['administrador']){
 ?>
@@ -24,14 +27,12 @@ if($_SESSION['administrador']){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script type="text/javascript" language="Javascript" src="../../js/funciones.js"></script>
 
-    <title>Visualizar horarios</title>
+    <title>DEVOLUCION</title>
     <link rel="stylesheet" href="../../Style/estiloMenu.css">
   </head>
   <body>
-  <div class="principal">
-
-  <!-- menu de navegacion -->
-  <nav class="nav" style="margin-left: -120px;">
+<div class="principal">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -91,13 +92,13 @@ if($_SESSION['administrador']){
                         <a href="../implementos.php" class="nav__link nav__link--inside">Implementos</a>
                     </li>
                     <li class="list__inside">
-                        <a href="visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
+                        <a href="../visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
                         <a href="../prestamos/prestamo.php" class="nav__link nav__link--inside">Prestamos</a>
                     </li>
                     <li class="list__inside">
-                        <a href="../devoluciones/devolucion.php" class="nav__link nav__link--inside">Devoluciones<br><br><br>administrar</a>
+                        <a href="#" class="nav__link nav__link--inside">Devoluciones<br><br><br>administrar</a>
                     </li>
                 </ul>
             </li>
@@ -144,6 +145,7 @@ if($_SESSION['administrador']){
 
         </ul>
     </nav>
+    <script src="../../js/menu.js"></script>
 
     <div>
         <div class="containersupp2"></div>
@@ -151,36 +153,38 @@ if($_SESSION['administrador']){
             <div class="container" >
                 <div class="card">
                     <div class="card-header bg-info">
-                        <h3 class="text-white text-center">GESTION DE HORARIOS</h3>
+                        <h3 class="text-white text-center">GESTION DE DEVOLUCIONES</h3>
                     </div>
                     <div class="card-body">
-                        <form name="formu" action="insertar_horario.php" method="post">
+                        <form name="formu" action="insertar_devolucion.php" method="post">
                             <div class="row">
-
                                 <div class="col-md-6">
-                                    <label for="nom">DIA</label>
-                                    <select name="day" class="form-select" aria-label="Default select example">
-                                      <option selected>Selecciona el día</option>
-                                      <option value="lunes">Lunes</option>
-                                      <option value="martes">Martes</option>
-                                      <option value="miercoles">Miércoles</option>
-                                      <option value="jueves">Jueves</option>
-                                      <option value="viernes">Viernes</option>
-                                      <option value="sabado">Sábado</option>
-                                      <option value="domingo">Domingo</option>
-                                    </select>
+                                    <label for="con">ID DE PRESTAMO</label>
+                                    <select name="id_prestamo" class="form-select" aria-label="Default select example" required="">
+                                      <option selected>Selecciona el prestamo</option>
+                                      <?php
+                                        foreach ($prestamos as $prestamo) { ?>
+                                            <option value="<?php  echo $prestamo['id']; ?>"><?php  echo $prestamo['id']; ?>-Usuario: <?php  echo $prestamo['id_usuario']; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>                                
                                 </div>
+                                
                                 <div class="col-md-6">
-                                    <label for="nom">HORA DE INICIO</label>
-                                    <input type="time" name="hora_inicio" class="form-control" required="">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="con">HORA DE FIN</label>
-                                    <input type="time" name="hora_fin" class="form-control"required="">
-                                </div>
+                                    <label for="con">BUENAS CONDICIONES</label>
+                                    <select name="buenas_condiciones" class="form-select" aria-label="Default select example" required="">
+                                      <option>Selecciona un estado</option>
+                                      <option value="true">Entregado en buenas condiciones</option>
+                                      <option value="false">No entregado en buenas condiciones</option>
+                                    </select>                                </div>
+                                    <div class="col-md-6">
+                                        <label for="con">DESCRIPCION</label>
+                                        <input type="text" name="descripcion" class="form-control" placeholder="INGRESE SU DESCRIPCION">
+                                    </div>
                                 <div class="col-md-12">
                                     <br>
-                                    <input type="submit" class="btn btn-primary" value="REGISTRAR HORARIO">
+                                    <input type="submit" class="btn btn-primary" value="REGISTRAR DEVOLUCION">
                                 </div>
                             </div>
                         </form>
@@ -188,38 +192,37 @@ if($_SESSION['administrador']){
                 </div>
                     <div class="containersupp"></div>
                     <?php
-                    include 'read_visualizar_horario.php';
-                    include 'modal_eliminar_horario.php';
+
                     ?>
                     <div class="table-responsive">
                         <table id="usu" class="table table-bordered table-striped">
                             <thead>
                                 <tr align="center">
                                     <th>ID</th>
-                                    <th>DIA</th>
-                                    <th>HORA DE INICIO</th>
-                                    <th>HORA DE FIN</th>
+                                    <th>ID DE PRESTAMO</th>
+                                    <th>BUENAS CONDICIONES</th>
+                                    <th>DESCRIPCION</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                foreach ($horarios as $horario) { ?>
+                            <?php
+                                foreach ($devoluciones as $devolucion) { ?>
 
-
-                                <tr>
-                                    <td><?php  echo $horario['id']; ?></td>
-                                    <td><?php  echo $horario['dia']; ?></td>
-                                    <td><?php echo $horario['hora_inicio']; ?></td>
-                                    <td><?php echo $horario['hora_fin']; ?></td>
-                                    <td align='center'>
-                                    <button class='btn btn-warning' onclick=window.location="form_modificar_horario.php?id=<?php echo $horario['id'];?>">
-                                    <span class="material-symbols-outlined">edit_square</span>
-                                    <a data-bs-toggle="modal" data-bs-target="#eliminarhorariomodal" data-id="=<?php echo $horario['id']?>" href="modal_eliminar_horario.php?id=<?php echo $horario['id'] ?>">
-                                    <button data-bs-toggle="modal" data-bs-target="#eliminarhorariomodal" class='btn btn-primary' data-id="=<?php echo $horario['id']?>">    
-                                </a>
-                                    <span class="material-symbols-outlined">delete_sweep</span>
-                                    </td>
-                                    
+                                    <tr>
+                                    <td><?php  echo $devolucion['id']; ?></td>
+                                    <td><?php  echo $devolucion['id_prestamo']; ?></td>
+                                    <td><?php  echo obtenerEstado($devolucion['buenas_condiciones']); ?></td>
+                                    <td><?php echo $devolucion['descripcion']; ?></td>
+                                    <?php  if ($devoluciones[0]['id'] !== 'No hay registros'){?>
+                                        <td align='center'>
+                                        <button class='btn btn-warning' onclick=window.location="form_modificar_devolucion.php?id=<?php echo $devolucion['id'];?>">
+                                        <span class="material-symbols-outlined">edit_square</span>
+                                        <a data-bs-toggle="modal" data-bs-target="#eliminardevolucionmodal" data-id="=<?php echo $devolucion['id']?>" href="modal_eliminar_devolucion.php?id=<?php echo $devolucion['id'] ?>">
+                                        <button data-bs-toggle="modal" data-bs-target="#eliminardevolucionmodal" class='btn btn-primary' data-id="=<?php echo $devolucion['id']?>">    
+                                        </a>
+                                        <span class="material-symbols-outlined">delete_sweep</span>
+                                        </td>
+                                    <?php } ?>
                                     </tr>
                                 <?php
                                 }
@@ -231,16 +234,14 @@ if($_SESSION['administrador']){
         </div>
     </div>
 </div>
-  <script type="text/javascript" src="../js/funciones.js"></script>
-  <script src="../../js/menu.js"></script>
-  <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+<!-- -->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
     <script src="../../sw/dist/sweetalert2.min.js"></script>
     <script src="../../js/jquery-3.6.1.min.js"></script>
-            
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.10.2/dist/js/bootstrap.min.js"></script>  
   </body>
 </html>
 <?php

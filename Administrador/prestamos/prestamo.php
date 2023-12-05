@@ -23,14 +23,14 @@ if($_SESSION['administrador']){
     <link rel="stylesheet" href="../../sw/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script type="text/javascript" language="Javascript" src="./js/funciones.js"></script>
+    <script type="text/javascript" language="Javascript" src="../../js/funciones.js"></script>
 
     <title>Solicitar prestamo</title>
     <link rel="stylesheet" href="../../Style/estiloMenu.css">
   </head>
   <body>
 <div class="principal">
-<nav class="nav"">
+<nav class="nav">
         <ul class="list">
 
             <li class="list__item">
@@ -84,7 +84,7 @@ if($_SESSION['administrador']){
                 </div>
                 <ul class="list__show">
                 <li class="list__inside">
-                        <a href="../menuimp.php" class="nav__link nav__link--inside">Gestionar<br>impresoras</a>
+                        <a href="../menuimp.php" class="nav__link nav__link--inside">Impresoras</a>
                     </li>
                     <li class="list__inside">
                         <a href="../implementos.php" class="nav__link nav__link--inside">Implementos</a>
@@ -93,7 +93,10 @@ if($_SESSION['administrador']){
                         <a href="../visualizar_horarios/visualizar_horario.php" class="nav__link nav__link--inside">Horarios</a>
                     </li>
                     <li class="list__inside">
-                        <a href="#" class="nav__link nav__link--inside">Prestamos <br> Solicitud</a>
+                        <a href="#" class="nav__link nav__link--inside">Prestamos</a>
+                    </li>
+                    <li class="list__inside">
+                        <a href="../devoluciones/devolucion.php" class="nav__link nav__link--inside">Devoluciones<br><br><br>administrar</a>
                     </li>
                 </ul>
             </li>
@@ -178,7 +181,7 @@ if($_SESSION['administrador']){
                                         <td align='center'>
                                         <button class='btn btn-warning' onclick=window.location="form_modificar_prestamo.php?id=<?php echo $prestamo['id'];?>">
                                         <span class="material-symbols-outlined">edit_square</span>
-                                        <a data-bs-toggle="modal" data-bs-target="#eliminarprestamomodal" data-id="=<?php echo $prestamo['id']?>" href="modal_eliminar_prestamo.php?id=<?php echo $horario['id'] ?>">
+                                        <a data-bs-toggle="modal" data-bs-target="#eliminarprestamomodal" data-id="=<?php echo $prestamo['id']?>" href="modal_eliminar_prestamo.php?id=<?php echo $prestamo['id'] ?>">
                                         <button data-bs-toggle="modal" data-bs-target="#eliminarprestamomodal" class='btn btn-primary' data-id="=<?php echo $prestamo['id']?>">    
                                         </a>
                                         <span class="material-symbols-outlined">delete_sweep</span>

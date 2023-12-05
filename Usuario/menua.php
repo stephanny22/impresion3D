@@ -72,6 +72,9 @@ if($_SESSION['usuario']){
                     <li class="list__inside">
                         <a href="solicitar_prestamo/solicitar_prestamo.php" class="nav__link nav__link--inside">Solicitar<br>prestamo</a>
                     </li>
+                    <li class="list__inside">
+                        <a href="devoluciones/devolucion.php" class="nav__link nav__link--inside">Mis devoluciones</a>
+                    </li>
                 </ul>
             </li>
 
@@ -125,7 +128,7 @@ if($_SESSION['usuario']){
      text :  ' Debe iniciar Session en el Sistema'
     }).then((result) => {
          if(result.isConfirmed){
-         window.location='./LoginU.php';
+         window.location='../LoginU.php';
         }
     }); </script>";
 }
